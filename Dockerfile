@@ -7,6 +7,11 @@ FROM ${ALPINE_VERSION}
 #describe who owns and maintains the image
 MAINTAINER Fullstack Developer , saurabh18.cs@gmail.com
 
+
+#he ADD directive can accept a remote URL for its source argument. The COPY directive, on the other hand, can only accept local files.
+#Note that using ADD to fetch remote files and copying is not typically ideal.
+#This is because the file will increase the overall Docker Image size. Instead, we should use curl or wget to fetch remote files and remove them when no longer needed.
+#Second, the ADD directive will automatically expand tar files into the image file system. While this can reduce the number of Dockerfile steps required to build an image, it may not be desired in all cases.|
 #copy local files into the container
 #WORKDIR /scripts
 #ADD hello-world.ps1 .
